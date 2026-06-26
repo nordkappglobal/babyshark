@@ -1,0 +1,143 @@
+@import "tailwindcss";
+
+@theme {
+  --font-baloo: var(--font-baloo);
+  --font-nunito: var(--font-nunito);
+  --color-ocean-900: #05162E;
+  --color-ocean-800: #0B2C5C;
+  --color-ocean-600: #1B57A6;
+  --color-ocean-400: #388EE6;
+  --color-ocean-200: #8CC4FF;
+  
+  --color-shark-500: #4B91F1;
+  --color-shark-300: #88B9FA;
+
+  --color-sunrise-500: #FF9900;
+  --color-sunrise-400: #FFB340;
+  --color-sunrise-300: #FFCC80;
+
+  --color-gold-600: #D97706;
+  --color-gold-500: #F59E0B;
+  --color-gold-400: #FBBF24;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-ocean-900);
+    color: white;
+    overflow-x: hidden;
+  }
+}
+
+.bg-water-gradient {
+  background: radial-gradient(circle at 50% -20%, #1B57A6 0%, #0B2C5C 40%, #05162E 100%);
+}
+
+.font-title {
+  font-family: var(--font-baloo), sans-serif;
+}
+
+/* 3D Text Effects */
+.text-3d-white {
+  text-shadow: 
+    0 2px 0 #CBD5E1,
+    0 4px 0 #94A3B8,
+    0 6px 10px rgba(0,0,0,0.5);
+  -webkit-text-stroke: 2px #1E293B;
+}
+
+.text-3d-sunrise {
+  text-shadow: 
+    0 2px 0 #D97706,
+    0 4px 0 #B45309,
+    0 6px 10px rgba(0,0,0,0.5);
+  -webkit-text-stroke: 2px #78350F;
+}
+
+.text-3d-shark {
+  text-shadow: 
+    0 2px 0 #1D4ED8,
+    0 4px 0 #1E3A8A,
+    0 6px 10px rgba(0,0,0,0.5);
+  -webkit-text-stroke: 1px #0F172A;
+}
+
+/* 3D Button */
+.btn-3d-gold {
+  background: linear-gradient(180deg, #FBBF24 0%, #F59E0B 100%);
+  box-shadow: 
+    inset 0 2px 0 rgba(255,255,255,0.4),
+    inset 0 -2px 0 rgba(0,0,0,0.2),
+    0 6px 0 #B45309,
+    0 8px 10px rgba(0,0,0,0.4);
+  transform: translateY(0);
+  transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-3d-gold:active {
+  transform: translateY(4px);
+  box-shadow: 
+    inset 0 2px 0 rgba(255,255,255,0.4),
+    inset 0 -2px 0 rgba(0,0,0,0.2),
+    0 2px 0 #B45309,
+    0 4px 5px rgba(0,0,0,0.4);
+}
+
+.btn-3d-blue {
+  background: linear-gradient(180deg, #60A5FA 0%, #3B82F6 100%);
+  box-shadow: 
+    inset 0 2px 0 rgba(255,255,255,0.4),
+    inset 0 -2px 0 rgba(0,0,0,0.2),
+    0 4px 0 #1D4ED8,
+    0 6px 10px rgba(0,0,0,0.4);
+  transform: translateY(0);
+  transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-3d-blue:active {
+  transform: translateY(2px);
+  box-shadow: 
+    inset 0 2px 0 rgba(255,255,255,0.4),
+    inset 0 -2px 0 rgba(0,0,0,0.2),
+    0 2px 0 #1D4ED8,
+    0 4px 5px rgba(0,0,0,0.4);
+}
+
+/* Form inputs */
+.input-sea {
+  background: rgba(255, 255, 255, 0.9);
+  color: #0F172A;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+  border: 2px solid #388EE6;
+}
+.input-sea:focus {
+  border-color: #FF9900;
+  box-shadow: 0 0 0 4px rgba(255, 153, 0, 0.3), inset 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Glass panel */
+.panel-glass {
+  background: rgba(11, 44, 92, 0.6);
+  backdrop-filter: blur(12px);
+  border: 2px solid rgba(140, 196, 255, 0.3);
+  box-shadow: 
+    0 10px 30px rgba(0,0,0,0.5),
+    inset 0 1px 0 rgba(255,255,255,0.2);
+}
+
+/* Bubbles */
+.bubble {
+  position: absolute;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.8), rgba(255,255,255,0.1) 60%, rgba(255,255,255,0.4) 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(255,255,255,0.2), inset 0 0 10px rgba(255,255,255,0.5);
+  bottom: -20px;
+  animation: floatUp infinite ease-in-out;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0) scale(1); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 0.8; }
+  100% { transform: translateY(-120vh) scale(1.2); opacity: 0; }
+}
